@@ -5,13 +5,13 @@
   <h1>The Wild Oasis - Admin</h1>
 
   <h3>
-    <a href="https://world-wide-oasis-sandy.vercel.app/">
+    <a href="https://world-wide-oasis-sherif.vercel.app/">
       <strong>Live Site</strong>
     </a>
   </h3>
 
   <div align="center">
-    <a href="https://world-wide-oasis-sandy.vercel.app/">View website</a>
+    <a href="https://world-wide-oasis-sherif.vercel.app/">View website</a>
     •
     <a href="https://github.com/SherifAdel2/world-wide-oasis/issues">Report Bug</a>
   </div>
@@ -35,7 +35,7 @@ Welcome to <b>The Wild Oasis</b>! This is a hotel management web app, where hote
 </p>
 
 <!-- Screenshot -->
-<a align="center" href="https://world-wide-oasis-sandy.vercel.app/">
+<a align="center" href="https://world-wide-oasis-sherif.vercel.app/">
 
 ![Screenshot](./public/thumbnail-preview.jpg)
 
@@ -43,7 +43,7 @@ Welcome to <b>The Wild Oasis</b>! This is a hotel management web app, where hote
 
 ## Live Site
 
-Check out the live admin app here: [The Wild Oasis - Admin](https://world-wide-oasis-sandy.vercel.app/)
+Check out the live admin app here: [The Wild Oasis - Admin](https://world-wide-oasis-sherif.vercel.app/)
 
 <!-- ## Customer Version
 
