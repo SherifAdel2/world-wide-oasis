@@ -5,17 +5,15 @@
   <h1>The Wild Oasis - Admin</h1>
 
   <h3>
-    <a href="https://the-wild-oasis-alamin.vercel.app">
+    <a href="https://world-wide-oasis-sandy.vercel.app/">
       <strong>Live Site</strong>
     </a>
   </h3>
 
   <div align="center">
-    <a href="https://the-wild-oasis-alamin.vercel.app">View website</a>
+    <a href="https://world-wide-oasis-sandy.vercel.app/">View website</a>
     •
-    <a href="https://github.com/CodeWithAlamin/The-Wild-Oasis/issues">Report Bug</a>
-    •
-    <a href="https://github.com/CodeWithAlamin/The-Wild-Oasis/pulls">Request Feature</a>
+    <a href="https://github.com/SherifAdel2/world-wide-oasis/issues">Report Bug</a>
   </div>
 
   <hr>
@@ -27,8 +25,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=flat)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/CodeWithAlamin)
-[![Twitter Follow](https://img.shields.io/twitter/follow/CodeWithAlamin?style=for-the-badge&logo=x)](https://x.com/CodeWithAlamin)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](www.linkedin.com/in/sherif-adel-2b5517280)
 
 </div>
 
@@ -38,7 +35,7 @@ Welcome to <b>The Wild Oasis</b>! This is a hotel management web app, where hote
 </p>
 
 <!-- Screenshot -->
-<a align="center" href="https://the-wild-oasis-alamin.vercel.app">
+<a align="center" href="https://world-wide-oasis-sandy.vercel.app/">
 
 ![Screenshot](./public/thumbnail-preview.jpg)
 
@@ -46,11 +43,11 @@ Welcome to <b>The Wild Oasis</b>! This is a hotel management web app, where hote
 
 ## Live Site
 
-Check out the live admin app here: [The Wild Oasis - Admin](https://the-wild-oasis-alamin.vercel.app)
+Check out the live admin app here: [The Wild Oasis - Admin](https://world-wide-oasis-sandy.vercel.app/)
 
-## Customer Version
+<!-- ## Customer Version
 
-I also built a **customer version** of this app, where guests can view and book cabins, manage their bookings, and update their profiles. The repository is [here](https://github.com/CodeWithAlamin/The-Wild-Oasis-Booking), and the live site is [here](https://the-wild-oasis-booking-alamin.vercel.app).
+I also built a **customer version** of this app, where guests can view and book cabins, manage their bookings, and update their profiles. The repository is [here](https://github.com/SherifAdel2/world-wide-oasis/issues), and the live site is [here](https://the-wild-oasis-booking-alamin.vercel.app). -->
 
 ## Key Features
 
@@ -92,7 +89,7 @@ To run this project locally:
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/CodeWithAlamin/The-Wild-Oasis.git
+   git clone https://github.com/SherifAdel2/world-wide-oasis.git
    ```
 2. Install dependencies:
    ```bash
@@ -110,9 +107,8 @@ To run this project locally:
 
 <b>👤 Alamin</b>
 
-- LinkedIn - [@CodeWithAlamin](https://www.linkedin.com/in/CodeWithAlamin)
-- Twitter - [@CodeWithAlamin](https://www.twitter.com/CodeWithAlamin)
-- GitHub - [@CodeWithAlamin](https://github.com/CodeWithAlamin)
+- LinkedIn - [@Sherif Adel](www.linkedin.com/in/sherif-adel-2b5517280)
+- GitHub - [@SherifAdel2](https://github.com/SherifAdel2/world-wide-oasis/issues)
 
 Feel free to contact me with any questions or feedback!
 
