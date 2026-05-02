@@ -105,7 +105,7 @@ To run this project locally:
 
 ## Author
 
-<b>👤 Sherif</b>
+<b>👤 Alamin</b>
 
 - LinkedIn - [@Sherif Adel](www.linkedin.com/in/sherif-adel-2b5517280)
 - GitHub - [@SherifAdel2](https://github.com/SherifAdel2/world-wide-oasis/issues)
