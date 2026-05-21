@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
-// import Uploader from "../data/Uploader";
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
@@ -12,6 +11,25 @@ const StyledSidebar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @media (max-width: 48em) {
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0.8rem 1.6rem;
+    gap: 0;
+
+    border-right: none;
+    border-bottom: 1px solid var(--color-grey-100);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 `;
 
 function Sidebar() {
@@ -19,7 +37,6 @@ function Sidebar() {
     <StyledSidebar>
       <Logo />
       <MainNav />
-      {/* <Uploader /> */}
     </StyledSidebar>
   );
 }

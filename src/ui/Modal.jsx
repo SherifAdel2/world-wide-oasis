@@ -6,8 +6,6 @@ import { useOutsideClick } from "../hooks/useOutsideClick";
 
 const StyledModal = styled.div`
   position: fixed;
-
-  // center modal
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -15,21 +13,30 @@ const StyledModal = styled.div`
   background-color: var(--color-grey-0);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
-
   padding: 3.2rem 4rem;
+  z-index: 1001;
+
+  /* Prevent overflow on any screen */
+  width: min(90vw, 80rem);
+  max-height: 90vh;
+  overflow-y: auto;
+
+  @media (max-width: 48em) {
+    padding: 2.4rem 2rem;
+    width: 95vw;
+    max-height: 85vh;
+    border-radius: var(--border-radius-md);
+  }
 `;
 
 const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100vh;
-
   background-color: var(--backdrop-color);
   backdrop-filter: blur(4px);
-
   z-index: 1000;
 `;
 
@@ -40,19 +47,34 @@ const Button = styled.button`
 
   background: none;
   border: none;
-
   padding: 0.4rem;
   border-radius: var(--border-radius-sm);
 
   &:hover {
     background-color: var(--color-grey-100);
   }
+
+  & svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    color: var(--color-grey-500);
+  }
+
+  @media (max-width: 48em) {
+    padding: 0.8rem;
+    min-width: 4.4rem;
+    min-height: 4.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0.8rem;
+    right: 0.8rem;
+  }
 `;
 
 const ModalContext = createContext();
 
 function Modal({ children }) {
-  // which modal is open
   const [openName, setOpenName] = useState("");
 
   const close = () => setOpenName("");
@@ -68,7 +90,6 @@ function Modal({ children }) {
 function Open({ children, opens: opensWindowName }) {
   const { open } = useContext(ModalContext);
 
-  // Inject onClick into child
   return cloneElement(children, {
     onClick: () => open(opensWindowName),
   });
@@ -76,7 +97,6 @@ function Open({ children, opens: opensWindowName }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
-
   const ref = useOutsideClick(close);
 
   if (name !== openName) return null;
@@ -87,8 +107,6 @@ function Window({ children, name }) {
         <Button onClick={close}>
           <HiXMark />
         </Button>
-
-        {/* Inject close function into modal content */}
         <div>{cloneElement(children, { onCloseModal: close })}</div>
       </StyledModal>
     </Overlay>,
@@ -100,15 +118,3 @@ Modal.Open = Open;
 Modal.Window = Window;
 
 export default Modal;
-
-/*
-<Modal>
-  <Modal.Open opens="edit">
-    <button>Edit</button>
-  </Modal.Open>
-
-  <Modal.Window name="edit">
-    <EditForm />
-  </Modal.Window>
-</Modal>
- */

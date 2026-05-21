@@ -7,16 +7,32 @@ const sizes = {
     text-transform: uppercase;
     font-weight: 600;
     text-align: center;
+
+    @media (max-width: 48em) {
+      padding: 0.6rem 1rem;
+      min-height: 3.2rem;
+    }
   `,
   medium: css`
     font-size: 1.4rem;
     padding: 1.2rem 1.6rem;
     font-weight: 500;
+
+    @media (max-width: 48em) {
+      padding: 1rem 1.4rem;
+      min-height: 4.4rem;
+    }
   `,
   large: css`
     font-size: 1.6rem;
     padding: 1.2rem 2.4rem;
     font-weight: 500;
+
+    @media (max-width: 48em) {
+      padding: 1rem 1.8rem;
+      min-height: 4.4rem;
+      width: 100%;
+    }
   `,
 };
 

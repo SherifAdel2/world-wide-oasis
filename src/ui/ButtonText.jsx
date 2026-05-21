@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ButtonText = styled.button`
   color: var(--color-brand-600);
@@ -12,6 +12,12 @@ const ButtonText = styled.button`
   &:hover,
   &:active {
     color: var(--color-brand-700);
+  }
+
+  @media (max-width: 48em) {
+    min-height: 4.4rem;
+    min-width: 4.4rem;
+    padding: 0.8rem 1.2rem;
   }
 `;
 

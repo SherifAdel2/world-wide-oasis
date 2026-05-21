@@ -24,6 +24,10 @@ const Cabin = styled.div`
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
+
+  @media (max-width: 48em) {
+    font-size: 1.4rem;
+  }
 `;
 
 const Stacked = styled.div`
@@ -39,11 +43,27 @@ const Stacked = styled.div`
     color: var(--color-grey-500);
     font-size: 1.2rem;
   }
+
+  @media (max-width: 48em) {
+    gap: 0.1rem;
+
+    & span:first-child {
+      font-size: 1.3rem;
+    }
+
+    & span:last-child {
+      font-size: 1.1rem;
+    }
+  }
 `;
 
 const Amount = styled.div`
   font-family: "Sono";
   font-weight: 500;
+
+  @media (max-width: 48em) {
+    font-size: 1.3rem;
+  }
 `;
 
 function BookingRow({

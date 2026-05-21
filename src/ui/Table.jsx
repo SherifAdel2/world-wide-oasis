@@ -3,11 +3,17 @@ import styled from "styled-components";
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
-
   font-size: 1.4rem;
   background-color: var(--color-grey-0);
   border-radius: 7px;
   overflow: hidden;
+
+  @media (max-width: 48em) {
+    font-size: 1.2rem;
+    border-radius: var(--border-radius-sm);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 `;
 
 const CommonRow = styled.div`
@@ -16,17 +22,25 @@ const CommonRow = styled.div`
   column-gap: 2.4rem;
   align-items: center;
   transition: none;
+
+  @media (max-width: 48em) {
+    column-gap: 1.2rem;
+    min-width: max-content;
+  }
 `;
 
 const StyledHeader = styled(CommonRow)`
   padding: 1.6rem 2.4rem;
-
   background-color: var(--color-grey-50);
   border-bottom: 1px solid var(--color-grey-100);
   text-transform: uppercase;
   letter-spacing: 0.4px;
   font-weight: 600;
   color: var(--color-grey-600);
+
+  @media (max-width: 48em) {
+    padding: 1.2rem 1.6rem;
+  }
 `;
 
 const StyledRow = styled(CommonRow)`
@@ -34,6 +48,10 @@ const StyledRow = styled(CommonRow)`
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-grey-100);
+  }
+
+  @media (max-width: 48em) {
+    padding: 1rem 1.6rem;
   }
 `;
 
@@ -47,7 +65,6 @@ const Footer = styled.footer`
   justify-content: center;
   padding: 1.2rem;
 
-  /* This will hide the footer when it contains no child elements. Possible thanks to the parent selector :has 🎉 */
   &:not(:has(*)) {
     display: none;
   }
@@ -58,6 +75,11 @@ const Empty = styled.p`
   font-weight: 500;
   text-align: center;
   margin: 2.4rem;
+
+  @media (max-width: 48em) {
+    font-size: 1.4rem;
+    margin: 1.6rem;
+  }
 `;
 
 const TableContext = createContext();
@@ -78,6 +100,7 @@ function Header({ children }) {
     </StyledHeader>
   );
 }
+
 function Row({ children }) {
   const { columns } = useContext(TableContext);
   return (
@@ -89,7 +112,6 @@ function Row({ children }) {
 
 function Body({ data, render }) {
   if (!data.length) return <Empty>No data to show at the moment</Empty>;
-
   return <StyledBody>{data.map(render)}</StyledBody>;
 }
 

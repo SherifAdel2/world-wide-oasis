@@ -13,11 +13,9 @@ import { Flag } from "../../ui/Flag";
 import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
 
 const StyledBookingDataBox = styled.section`
-  /* Box */
   background-color: var(--color-grey-0);
   border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
-
   overflow: hidden;
 `;
 
@@ -49,10 +47,36 @@ const Header = styled.header`
     font-size: 2rem;
     margin-left: 4px;
   }
+
+  @media (max-width: 48em) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1.6rem 2rem;
+    font-size: 1.4rem;
+
+    svg {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+
+    & div:first-child {
+      font-size: 1.6rem;
+      gap: 1rem;
+    }
+
+    & span {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const Section = styled.section`
   padding: 3.2rem 4rem 1.2rem;
+
+  @media (max-width: 48em) {
+    padding: 2rem 1.6rem 1rem;
+  }
 `;
 
 const Guest = styled.div`
@@ -65,6 +89,16 @@ const Guest = styled.div`
   & p:first-of-type {
     font-weight: 500;
     color: var(--color-grey-700);
+  }
+
+  @media (max-width: 48em) {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 1.3rem;
+
+    & span {
+      display: none;
+    }
   }
 `;
 
@@ -92,6 +126,18 @@ const Price = styled.div`
     width: 2.4rem;
     color: currentColor !important;
   }
+
+  @media (max-width: 48em) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1.4rem 1.6rem;
+
+    & p:last-child {
+      font-size: 1.2rem;
+      align-self: flex-end;
+    }
+  }
 `;
 
 const Footer = styled.footer`
@@ -99,9 +145,14 @@ const Footer = styled.footer`
   font-size: 1.2rem;
   color: var(--color-grey-500);
   text-align: right;
+
+  @media (max-width: 48em) {
+    padding: 1.2rem 1.6rem;
+    text-align: left;
+    font-size: 1.1rem;
+  }
 `;
 
-// A purely presentational component
 function BookingDataBox({ booking }) {
   const {
     created_at,
@@ -164,15 +215,13 @@ function BookingDataBox({ booking }) {
         </DataItem>
 
         <Price isPaid={isPaid}>
-          <DataItem icon={<HiOutlineCurrencyDollar />} label={`Total price`}>
+          <DataItem icon={<HiOutlineCurrencyDollar />} label="Total price">
             {formatCurrency(totalPrice)}
-
             {hasBreakfast &&
               ` (${formatCurrency(cabinPrice)} cabin + ${formatCurrency(
-                extrasPrice
+                extrasPrice,
               )} breakfast)`}
           </DataItem>
-
           <p>{isPaid ? "Paid" : "Will pay at property"}</p>
         </Price>
       </Section>

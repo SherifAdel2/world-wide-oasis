@@ -12,6 +12,20 @@ const StyledModal = styled.div`
   box-shadow: var(--shadow-lg);
   padding: 3.2rem 4rem;
   transition: all 0.5s;
+  z-index: 1001;
+
+  /* Prevent overflow on any screen */
+  max-height: 90vh;
+  overflow-y: auto;
+  width: min(90vw, 80rem);
+
+  @media (max-width: 48em) {
+    padding: 2.4rem 2rem;
+    width: 95vw;
+    max-height: 85vh;
+    border-radius: var(--border-radius-md);
+    top: 50%;
+  }
 `;
 
 const Overlay = styled.div`
@@ -44,10 +58,18 @@ const Button = styled.button`
   & svg {
     width: 2.4rem;
     height: 2.4rem;
-    /* Sometimes we need both */
-    /* fill: var(--color-grey-500);
-    stroke: var(--color-grey-500); */
     color: var(--color-grey-500);
+  }
+
+  @media (max-width: 48em) {
+    padding: 0.8rem;
+    min-width: 4.4rem;
+    min-height: 4.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0.8rem;
+    right: 0.8rem;
   }
 `;
 
@@ -58,11 +80,10 @@ function Modal({ children, onClose }) {
         <Button onClick={onClose}>
           <HiXMark />
         </Button>
-
         <div>{children}</div>
       </StyledModal>
     </Overlay>,
-    document.body
+    document.body,
   );
 }
 

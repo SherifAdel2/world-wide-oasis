@@ -9,6 +9,11 @@ const StyledFilter = styled.div`
   padding: 0.4rem;
   display: flex;
   gap: 0.4rem;
+
+  @media (max-width: 48em) {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
 `;
 
 const FilterButton = styled.button`
@@ -25,13 +30,20 @@ const FilterButton = styled.button`
   border-radius: var(--border-radius-sm);
   font-weight: 500;
   font-size: 1.4rem;
-  /* To give the same height as select */
   padding: 0.44rem 0.8rem;
   transition: all 0.3s;
 
   &:hover:not(:disabled) {
     background-color: var(--color-brand-600);
     color: var(--color-brand-50);
+  }
+
+  @media (max-width: 48em) {
+    font-size: 1.2rem;
+    padding: 0.6rem 0.8rem;
+    min-height: 3.6rem;
+    flex: 1;
+    text-align: center;
   }
 `;
 
@@ -42,7 +54,6 @@ function Filter({ filterField, options }) {
   function handleClick(value) {
     searchParams.set(filterField, value);
     if (searchParams.get("page")) searchParams.set("page", 1);
-
     setSearchParams(searchParams);
   }
 

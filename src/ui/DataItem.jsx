@@ -5,6 +5,13 @@ const StyledDataItem = styled.div`
   align-items: center;
   gap: 1.6rem;
   padding: 0.8rem 0;
+
+  @media (max-width: 48em) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 0.6rem 0;
+  }
 `;
 
 const Label = styled.span`
@@ -17,6 +24,12 @@ const Label = styled.span`
     width: 2rem;
     height: 2rem;
     color: var(--color-brand-600);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 48em) {
+    font-size: 1.2rem;
+    color: var(--color-grey-500);
   }
 `;
 

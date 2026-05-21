@@ -8,6 +8,12 @@ const StyledPagination = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 48em) {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
 `;
 
 const P = styled.p`
@@ -17,17 +23,29 @@ const P = styled.p`
   & span {
     font-weight: 600;
   }
+
+  @media (max-width: 48em) {
+    font-size: 1.2rem;
+    margin-left: 0;
+    text-align: center;
+  }
 `;
 
 const Buttons = styled.div`
   display: flex;
   gap: 0.6rem;
+
+  @media (max-width: 48em) {
+    width: 100%;
+    justify-content: center;
+    gap: 0.8rem;
+  }
 `;
 
 const PaginationButton = styled.button`
   background-color: ${(props) =>
-    props.active ? " var(--color-brand-600)" : "var(--color-grey-50)"};
-  color: ${(props) => (props.active ? " var(--color-brand-50)" : "inherit")};
+    props.active ? "var(--color-brand-600)" : "var(--color-grey-50)"};
+  color: ${(props) => (props.active ? "var(--color-brand-50)" : "inherit")};
   border: none;
   border-radius: var(--border-radius-sm);
   font-weight: 500;
@@ -57,6 +75,14 @@ const PaginationButton = styled.button`
     background-color: var(--color-brand-600);
     color: var(--color-brand-50);
   }
+
+  @media (max-width: 48em) {
+    min-height: 4.4rem;
+    padding: 0.6rem 1.6rem;
+    font-size: 1.3rem;
+    flex: 1;
+    max-width: 14rem;
+  }
 `;
 
 function Pagination({ count }) {
@@ -69,14 +95,12 @@ function Pagination({ count }) {
 
   function nextPage() {
     const next = currentPage === pageCount ? currentPage : currentPage + 1;
-
     searchParams.set("page", next);
     setSearchParams(searchParams);
   }
 
   function prevPage() {
     const prev = currentPage === 1 ? currentPage : currentPage - 1;
-
     searchParams.set("page", prev);
     setSearchParams(searchParams);
   }

@@ -10,16 +10,28 @@ const Form = styled.form`
       background-color: var(--color-grey-0);
       border: 1px solid var(--color-grey-100);
       border-radius: var(--border-radius-md);
+
+      @media (max-width: 48em) {
+        padding: 2rem 1.6rem;
+      }
     `}
 
   ${(props) =>
     props.type === "modal" &&
     css`
       width: 80rem;
+
+      @media (max-width: 48em) {
+        width: 100%;
+      }
     `}
-    
+
   overflow: hidden;
   font-size: 1.4rem;
+
+  @media (max-width: 48em) {
+    font-size: 1.3rem;
+  }
 `;
 
 Form.defaultProps = {

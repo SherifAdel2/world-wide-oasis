@@ -11,11 +11,9 @@ import {
 import { useDarkMode } from "../../context/DarkModeContext";
 
 const ChartBox = styled.div`
-  /* Box */
   background-color: var(--color-grey-0);
   border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
-
   padding: 2.4rem 3.2rem;
   grid-column: 3 / span 2;
 
@@ -26,100 +24,43 @@ const ChartBox = styled.div`
   & .recharts-pie-label-text {
     font-weight: 600;
   }
+
+  @media (max-width: 85em) {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 48em) {
+    padding: 2rem 1.6rem;
+    grid-column: 1 / -1;
+  }
 `;
 
 const startDataLight = [
-  {
-    duration: "1 night",
-    value: 0,
-    color: "#ef4444",
-  },
-  {
-    duration: "2 nights",
-    value: 0,
-    color: "#f97316",
-  },
-  {
-    duration: "3 nights",
-    value: 0,
-    color: "#eab308",
-  },
-  {
-    duration: "4-5 nights",
-    value: 0,
-    color: "#84cc16",
-  },
-  {
-    duration: "6-7 nights",
-    value: 0,
-    color: "#22c55e",
-  },
-  {
-    duration: "8-14 nights",
-    value: 0,
-    color: "#14b8a6",
-  },
-  {
-    duration: "15-21 nights",
-    value: 0,
-    color: "#3b82f6",
-  },
-  {
-    duration: "21+ nights",
-    value: 0,
-    color: "#a855f7",
-  },
+  { duration: "1 night", value: 0, color: "#ef4444" },
+  { duration: "2 nights", value: 0, color: "#f97316" },
+  { duration: "3 nights", value: 0, color: "#eab308" },
+  { duration: "4-5 nights", value: 0, color: "#84cc16" },
+  { duration: "6-7 nights", value: 0, color: "#22c55e" },
+  { duration: "8-14 nights", value: 0, color: "#14b8a6" },
+  { duration: "15-21 nights", value: 0, color: "#3b82f6" },
+  { duration: "21+ nights", value: 0, color: "#a855f7" },
 ];
 
 const startDataDark = [
-  {
-    duration: "1 night",
-    value: 0,
-    color: "#b91c1c",
-  },
-  {
-    duration: "2 nights",
-    value: 0,
-    color: "#c2410c",
-  },
-  {
-    duration: "3 nights",
-    value: 0,
-    color: "#a16207",
-  },
-  {
-    duration: "4-5 nights",
-    value: 0,
-    color: "#4d7c0f",
-  },
-  {
-    duration: "6-7 nights",
-    value: 0,
-    color: "#15803d",
-  },
-  {
-    duration: "8-14 nights",
-    value: 0,
-    color: "#0f766e",
-  },
-  {
-    duration: "15-21 nights",
-    value: 0,
-    color: "#1d4ed8",
-  },
-  {
-    duration: "21+ nights",
-    value: 0,
-    color: "#7e22ce",
-  },
+  { duration: "1 night", value: 0, color: "#b91c1c" },
+  { duration: "2 nights", value: 0, color: "#c2410c" },
+  { duration: "3 nights", value: 0, color: "#a16207" },
+  { duration: "4-5 nights", value: 0, color: "#4d7c0f" },
+  { duration: "6-7 nights", value: 0, color: "#15803d" },
+  { duration: "8-14 nights", value: 0, color: "#0f766e" },
+  { duration: "15-21 nights", value: 0, color: "#1d4ed8" },
+  { duration: "21+ nights", value: 0, color: "#7e22ce" },
 ];
 
 function prepareData(startData, stays) {
-  // A bit ugly code, but sometimes this is what it takes when working with real data 😅
-
   function incArrayValue(arr, field) {
     return arr.map((obj) =>
-      obj.duration === field ? { ...obj, value: obj.value + 1 } : obj
+      obj.duration === field ? { ...obj, value: obj.value + 1 } : obj,
     );
   }
 
@@ -145,20 +86,21 @@ function DurationChart({ confirmedStays }) {
   const { isDarkMode } = useDarkMode();
   const startData = isDarkMode ? startDataDark : startDataLight;
   const data = prepareData(startData, confirmedStays);
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <ChartBox>
       <Heading as="h2">Stay duration summary</Heading>
-      <ResponsiveContainer width="100%" height={240}>
+      <ResponsiveContainer width="100%" height={isMobile ? 300 : 240}>
         <PieChart>
           <Pie
             data={data}
             nameKey="duration"
             dataKey="value"
-            innerRadius={85}
-            outerRadius={110}
-            cx="40%"
-            cy="50%"
+            innerRadius={isMobile ? 60 : 85}
+            outerRadius={isMobile ? 80 : 110}
+            cx={isMobile ? "50%" : "40%"}
+            cy={isMobile ? "40%" : "50%"}
             paddingAngle={3}
           >
             {data.map((entry) => (
@@ -171,11 +113,11 @@ function DurationChart({ confirmedStays }) {
           </Pie>
           <Tooltip />
           <Legend
-            verticalAlign="middle"
-            align="right"
-            width="30%"
-            layout="vertical"
-            iconSize={15}
+            verticalAlign={isMobile ? "bottom" : "middle"}
+            align={isMobile ? "center" : "right"}
+            width={isMobile ? "100%" : "30%"}
+            layout={isMobile ? "horizontal" : "vertical"}
+            iconSize={isMobile ? 10 : 15}
             iconType="circle"
           />
         </PieChart>
